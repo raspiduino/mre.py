@@ -28,7 +28,7 @@ git submodule init
 git submodule update ports/mre/mre-makefile
 ```
 
-To compile the source, you need a toolchain. A recommended toolchain would be []`gcc-arm-none-eabi` version 4.9](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update) (You can choose other toolchain/version if you would like, but I recommend this particular version. It works, and it produce runable app, unlike *some* newer versions). Download the suitable toolchain for your host OS and architecture, and add it bin path to `PATH`. For example, with Linux x86_64, it would be:
+To compile the source, you need a toolchain. A recommended toolchain would be [`gcc-arm-none-eabi` version 4.9](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update) (You can choose other toolchain/version if you would like, but I recommend this particular version. It works, and it produce runable app, unlike *some* newer versions). Download the suitable toolchain for your host OS and architecture, and add it bin path to `PATH`. For example, with Linux x86_64, it would be:
 
 ```bash
 wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
