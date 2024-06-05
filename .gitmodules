@@ -68,3 +68,6 @@
 [submodule "lib/arduino-lib"]
 	path = lib/arduino-lib
 	url = https://github.com/arduino/arduino-lib-mpy.git
+[submodule "ports/mre/mre-makefile"]
+	path = ports/mre/mre-makefile
+	url = https://github.com/raspiduino/mrepl-makefile.git
