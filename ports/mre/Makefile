@@ -31,7 +31,7 @@ INC += -I "$(SDK)/include" -I "mre-makefile/src/include" -I "mre-makefile/src/Re
 DEFINES = -D _MINIGUI_LIB_ -D _USE_MINIGUIENTRY -D _NOUNIX_ -D _FOR_WNC -D __MRE_SDK__ -D __MRE_VENUS_NORMAL__ -D __MMI_MAINLCD_240X320__ -D MRE -D GCC -D __MRE_COMPILER_GCC__
 
 # [MRE & Micropython] Compiler flags
-SHARED_PARAM = -c -fpic -mcpu=arm7tdmi-s -fvisibility=hidden -Os -mlittle-endian $(INC) $(DEFINES) -fdata-sections -ffunction-sections -Wdouble-promotion -Wfloat-conversion $(COPT)
+SHARED_PARAM = -c -fpic -mcpu=arm7tdmi-s -fvisibility=hidden -Os -mlittle-endian -mthumb $(INC) $(DEFINES) -fdata-sections -ffunction-sections -Wdouble-promotion -Wfloat-conversion $(COPT)
 CFLAGS += $(SHARED_PARAM) -std=c99
 CXXFLAGS += $(SHARED_PARAM) -fno-threadsafe-statics -fno-exceptions -fno-non-call-exceptions $(filter-out -std=c99,$(CFLAGS))
 LD = $(GCC)
@@ -45,8 +45,8 @@ CFLAGS += -Os -DNDEBUG
 CFLAGS += -fdata-sections -ffunction-sections
 endif
 
-LINK_LIB = -lstdc++ $(SDK)/lib/*.a 
-LDFLAGS = -fno-threadsafe-statics -Wl,--gc-sections -fpic -fpcc-struct-return --disable-libstdcxx-verbose -pie -lm -T "$(SDK)/scat.ld"
+LINK_LIB = -lm -lstdc++ $(SDK)/lib/*.a 
+LDFLAGS = -fno-threadsafe-statics -Wl,--gc-sections -fpic -fpcc-struct-return --disable-libstdcxx-verbose -pie -T "$(SDK)/scat.ld"
 
 # [MRE & Micropython] Sources
 LIBS = $(LINK_LIB)

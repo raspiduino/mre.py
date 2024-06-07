@@ -28,12 +28,12 @@ git submodule init
 git submodule update ports/mre/mre-makefile
 ```
 
-To compile the source, you need a toolchain. A recommended toolchain would be [`gcc-arm-none-eabi` version 4.9](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update) (You can choose other toolchain/version if you would like, but I recommend this particular version. It works, and it produce runable app, unlike *some* newer versions). Download the suitable toolchain for your host OS and architecture, and add it bin path to `PATH`. For example, with Linux x86_64, it would be:
+To compile the source, you need a toolchain. A recommended toolchain would be [`gcc-arm-none-eabi` version 10.3](https://developer.arm.com/downloads/-/gnu-rm) (You can choose other toolchain/version if you would like). Download the suitable toolchain for your host OS and architecture, and add it bin path to `PATH`. For example, with Linux x86_64, it would be:
 
 ```bash
-wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-tar -xvf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-export PATH=$PATH:$PWD/gcc-arm-none-eabi-4_9-2015q3/bin/
+wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+tar -xvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+export PATH=$PATH:$PWD/gcc-arm-none-eabi-10.3-2021.10/bin/
 ```
 
 Finally, you can build MicroPython for MRE:

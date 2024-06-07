@@ -198,9 +198,6 @@ void upy_repl_init() {
 }
 
 void upy_repl_rx_cont_end() {
-    // Done cont mode, back to main mode
-    upy_repl_main = true;
-
     // Continue the rest of original upy_repl_rx_main()
     int ret = parse_compile_execute(&line, parse_input_kind, EXEC_FLAG_ALLOW_DEBUGGING | EXEC_FLAG_IS_REPL | EXEC_FLAG_SOURCE_IS_VSTR);
     if (ret & PYEXEC_FORCED_EXIT) {
@@ -208,6 +205,8 @@ void upy_repl_rx_cont_end() {
         return;
     }
 
+    // Done cont mode, back to main mode
+    upy_repl_main = true;
     upy_repl_input_restart(); 
 }
 

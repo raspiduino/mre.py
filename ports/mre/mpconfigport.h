@@ -3,7 +3,7 @@
 // options to control how MicroPython is built
 
 // Use the minimal starting configuration (disables all optional features).
-#define MICROPY_CONFIG_ROM_LEVEL (MICROPY_CONFIG_ROM_LEVEL_MINIMUM)
+//#define MICROPY_CONFIG_ROM_LEVEL (MICROPY_CONFIG_ROM_LEVEL_CORE_FEATURES)
 
 // You can disable the built-in MicroPython compiler by setting the following
 // config option to 0.  If you do this then you won't get a REPL prompt, but you
@@ -17,6 +17,18 @@
 #define MICROPY_ENABLE_EXTERNAL_IMPORT    (1)
 #define MICROPY_PY_BUILTINS_HELP          (1)
 #define MICROPY_HW_ENABLE_USB             (0)
+
+#define MICROPY_ERROR_REPORTING                 (MICROPY_ERROR_REPORTING_TERSE)
+#define MICROPY_FLOAT_IMPL                      (MICROPY_FLOAT_IMPL_FLOAT)
+
+// Fine control over Python builtins, classes, modules, etc.
+#define MICROPY_PY_ASYNC_AWAIT                  (1)
+#define MICROPY_PY_BUILTINS_SET                 (1)
+#define MICROPY_PY_ATTRTUPLE                    (1)
+#define MICROPY_PY_COLLECTIONS                  (1)
+#define MICROPY_PY_MATH                         (1)
+#define MICROPY_PY_IO                           (0)
+#define MICROPY_PY_STRUCT                       (1)
 
 #define MICROPY_ALLOC_PATH_MAX            (256)
 
@@ -33,7 +45,7 @@ typedef long mp_off_t;
 #include <alloca.h>
 
 #define MICROPY_HW_BOARD_NAME "MRE"
-#define MICROPY_HW_MCU_NAME "MediaTek"
+#define MICROPY_HW_MCU_NAME "MediaTek SoC"
 
 #define MICROPY_HEAP_SIZE      (131072) // heap size 128KB
 
